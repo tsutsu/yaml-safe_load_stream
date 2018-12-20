@@ -9,7 +9,7 @@ There's also `YAML.load_stream` for loading multi-document streams.
 
 The problem is, there's no `YAML.safe_load_stream` that would safely load a stream with multiple documents.
 
-This gem adds that missing feature.
+This gem adds a very bare bones implementation of that missing feature.
 
 ## Usage
 
