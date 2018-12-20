@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir[*%w(lib/yaml/safe_load_stream.rb lib/yaml/safe_load_stream/core-ext.rb LICENSE README.md)]
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = '~> 2.4'
+  spec.required_ruby_version = '~> 2.3'
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rubocop"
