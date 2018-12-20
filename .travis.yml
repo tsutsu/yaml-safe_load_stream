@@ -1,4 +1,3 @@
----
 sudo: false
 language: ruby
 cache: bundler
@@ -10,13 +9,13 @@ matrix:
   allow_failures:
   - rvm: ruby-head
 script:
-  - bundle exec rspec spec/
-  - bundle exec rubocop --fail-level A -S --format c --parallel
+- bundle exec rspec spec/
+- bundle exec rubocop --fail-level A -S --format c --parallel
 deploy:
   provider: rubygems
   gem: yaml-safe_load_stream
   api_key:
-    secure: "f5NfPVtrGPaOCP/tnfoYRSZCRwITnQrl/YNW70gm+nk32JD1UE7qloYdNqpx4VChdFsOH/hfxygiFJkuAhvEWsx1kqOfNpVV+05r92ulp0tMyC/U1wBdnY1UEVbyZF/of25aPezx6Egkw5OFAOqUVwC6m1CqHiL91InZcE5uNtI9Kc2MHAWZqKyD7G5hau0jdFWldTS1gRrl4wJaJq0TQEWqllX6UmaW+p3pSFYKw6IekrI4LYTmCCbxRjwl2TQ8WMSTjvzEK3AIeUe7QU8bv3+56FsnCwr7dXeSK6GoDTQHZlflqYaTt6khsIXbGFCQyws4qFWu69Wf+nEJTSe7TH3qKa1WsAQy0CucVxQ5C0Lt5N5Bb2ZhqM3F2rjxeUnRBJfSRPNqyRQJUaY5GyxcEgco/rhFNJKD28sfNMqBslxGRpj2Y+hyzXt9JnRe7yEdWJcVuQLp6ObhK5DDqtcOF4aFrVd1OxZLlvl7DTHlngBuMJ7TRX50wfAkRWr4u+crrsN25j8y1KfXkTBWvlPNlReHxeT3DjPkhGuMGpy52KOtGB+5ibFvea3N2o4t9xT5pykvQ0ohwu+aj/4MroP95NKwVWZ8cbW/euOd68lwA1ZGTalPKmMWH4pPwNUmhnaCgZGexktGAVpDxFE7fZdh7gb/szfmeDDZ66eAolzrImU="
+    secure: w1I8kCjTU8d/lgPsGWnC5ZyIUcBLJUUCi0aAVi6msA32Doda2eQWtL9OUMreVr4GO9F6/54cVPqrneyZtzqGtTzfYvss+yStNN/3Sac3X382piPPcOs5xuUewD50LPuLe8/gt72d9+dCuPibTIX0LVPNfdJCQeVH3I/od+THayQYIxUxWI6Jnp+j58KfB254IxrCqydjcRUsflDeCwPALNlPZHRBMmUBARWPTFsVdyoi5qhjOJEe9iWFwtjJ1vsQZIJKG4ErtAx1ycH+4gj5pMNM5+CMXuLD3K2Z1ecUBUpORik2QDHpG24VZDpa50L/P6mid7K/5rHW1lp9xT07SpoGdmJDfusN5dHFutc3ALr+NWht3A3eQW5Ew7zLMP8NAxYVStMZSWLCH+HKhLNAXZ7eaGAATX/Jc1LvuafqrHoPIisoub9qLUr/8Ke2DJejmjaBa7EnOd/01Fig/cZBNXf9u68UnwDIHCSMfO6GZ0Gq4hI5GbkPpQl+VQixTz9RyZsdmdfZ6hnUBgbSZ8s3/Y4yS4FRTNnLOqkztIyEXpyUo1tgAhYOzDaAH50eDLX+vW/KXDQKH2MYS64M9x83OnH+GTSgvARrX5nmALvoYku6r5aU3oRfvvmCbkR+Q+34aONnD0YcV3vRC8LBIjRlLOhpyPsQbt/We6rxDrzP2ug=
   on:
     tags: true
     rvm: '2.5'

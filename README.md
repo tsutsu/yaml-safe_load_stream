@@ -1,4 +1,7 @@
 # YAMLSafeLoadStream
+[![Build Status](https://travis-ci.org/kontena/yaml-safe_load_stream.svg?branch=master)](https://travis-ci.org/kontena/yaml-safe_load_stream)
+[![Gem Version](https://badge.fury.io/rb/yaml-safe_load_stream.svg)](https://badge.fury.io/rb/yaml-safe_load_stream)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/kontena/yaml-safe_load_stream/master)
 
 The Ruby standard library YAML/Psych module defines `YAML.safe_load` for safely loading YAML documents
 
