@@ -28,14 +28,15 @@ module YAMLSafeLoadStream
     doc_num += 1 if obj.is_a?(Psych::Nodes::Document)
 
     if obj.respond_to?(:tag)
-      if tag = obj.tag
+      tag = obj.tag
+      unless tag.nil?
         unless tag.to_s.start_with?('tag:yaml.org,')
           message = "tag #{tag} encountered "
-          if obj.respond_to?(:start_line)
-            message += "on line #{obj.start_line} column #{obj.start_column} of document #{doc_num}"
-          else
-            message += "in document #{doc_num}"
-          end
+          message += if obj.respond_to?(:start_line)
+                       "on line #{obj.start_line} column #{obj.start_column} of document #{doc_num}"
+                     else
+                       "in document #{doc_num}"
+                     end
           message += " in file #{filename}" if filename
           raise Psych::DisallowedClass, message
         end
