@@ -8,7 +8,9 @@ rvm:
 matrix:
   allow_failures:
   - rvm: ruby-head
+before_install: gem install bundler
 script:
+- bundle install
 - bundle exec rspec spec/
 - bundle exec rubocop --fail-level A -S --format c --parallel
 deploy:
