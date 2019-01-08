@@ -12,16 +12,16 @@ module YAMLSafeLoadStream
   # @yield [document] each document in the stream is yielded if a block is given
   # @return [Array] when a block is not given, returns an Array of documents
   module_function def safe_load_stream(yaml, filename = nil)
-    streams = []
+    result = []
     ::YAML.parse_stream(yaml, filename) do |stream|
       raise_if_tags(stream, filename)
-      if block_given?
-        yield stream.to_ruby
-      else
-        streams << stream.to_ruby
-      end
+      result << if block_given?
+                  yield(stream.to_ruby)
+                else
+                  stream.to_ruby
+                end
     end
-    streams unless block_given?
+    result
   end
 
   module_function def raise_if_tags(obj, filename = nil, doc_num = 1)

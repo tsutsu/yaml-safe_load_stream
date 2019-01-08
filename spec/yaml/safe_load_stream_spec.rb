@@ -15,6 +15,16 @@ RSpec.describe YAMLSafeLoadStream do
       expect(docs.first['hello']).to eq 'world'
       expect(docs.last['hello']).to eq 'universe'
     end
+
+    it 'returns the result of yields as array' do
+      docs = YAMLSafeLoadStream.safe_load_stream(multidoc_stream) do |doc|
+        expect(doc).to be_a Hash
+        doc
+      end
+
+      expect(docs.first['hello']).to eq 'world'
+      expect(docs.last['hello']).to eq 'universe'
+    end
   end
 
   context 'used without a block' do
