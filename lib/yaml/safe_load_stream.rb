@@ -13,7 +13,7 @@ module YAMLSafeLoadStream
   # @return [Array] when a block is not given, returns an Array of documents
   module_function def safe_load_stream(yaml, filename = nil)
     result = []
-    ::YAML.parse_stream(yaml, filename) do |stream|
+    ::YAML.parse_stream(yaml, filename: filename) do |stream|
       raise_if_tags(stream, filename)
       result << if block_given?
                   yield(stream.to_ruby)
@@ -38,7 +38,11 @@ module YAMLSafeLoadStream
                        "in document #{doc_num}"
                      end
           message += " in file #{filename}" if filename
-          raise Psych::DisallowedClass, message
+          if RUBY_VERSION < "3.1.0"
+            raise Psych::DisallowedClass, message
+          else
+            raise Psych::DisallowedClass.new(:load, message)
+          end
         end
       end
     end

@@ -1,0 +1,36 @@
+services:
+  rspec-2.6:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ruby:2.6
+    volumes:
+      - .:/app
+    entrypoint: bundle exec rspec
+
+  rspec-2.7:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ruby:2.7
+    volumes:
+      - .:/app
+    entrypoint: bundle exec rspec
+
+  rspec-3.0:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ruby:3.0
+    volumes:
+      - .:/app
+    entrypoint: bundle exec rspec
+
+  rspec-3.1:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ruby:3.1
+    volumes:
+      - .:/app
+    entrypoint: bundle exec rspec
